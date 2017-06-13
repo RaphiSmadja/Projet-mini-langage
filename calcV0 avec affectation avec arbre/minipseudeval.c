@@ -22,8 +22,8 @@ double evalExpr(Node *node) {
 	 
 	case NTPLUS: return evalExpr(node->children[0])
 			+ evalExpr(node->children[1]);
-	case NTAFF: return evalExpr(node->children[0])
-			= evalExpr(node->children[1]);
+	/*case NTAFF: return evalExpr(node->children[0])
+			= evalExpr(node->children[1]);*/
 	case NTMIN: return evalExpr(node->children[0])
 			- evalExpr(node->children[1]);
 	case NTMULT: return evalExpr(node->children[0])
@@ -55,7 +55,7 @@ void evalInst(Node* node) {
 	case NTPOW:
 		printf("%f\n", evalExpr(node));
 		return;
-	case NTAFF:
+	/*case NTAFF:*/
 	default:
 		printf("Error in evalInst ... Wrong node type: %s\n", node2String(node));
 		exit (1);
