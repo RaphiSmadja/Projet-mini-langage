@@ -60,15 +60,13 @@ Instlist:
 
 Inst:
   Expr COLON { $$ = $1; }  
-  //|VAR AFF Expr COLON {$$ = nodeChildren(createNode(NTINSTLIST), $1, createNode(NTEMPTY));}
-	|VAR AFF Expr COLON {printf("variable :%s\n",$1->var);$$ = $3;}
+	|VAR AFF Expr COLON {    printf("variable :%s\n",$1->var);$$ = $3;}
   ;
 
 
 Expr:
   NUM     { $$ = $1; }
-  /*VAR     { $$ = $1; }
-  | Expr AFF Expr      { $$ = nodeChildren(createNode($2, $1, $3)); }*/
+  |VAR     { $$ = $1; }
   | Expr PLUS Expr     { $$ = nodeChildren($2, $1, $3); }
   | Expr MIN Expr      { $$ = nodeChildren($2, $1, $3); }
   | Expr MULT Expr     { $$ = nodeChildren($2, $1, $3); }
@@ -86,7 +84,7 @@ Expr:
 
 int exec(Node *node) {
    printGraph(node);
-  eval(node);
+   eval(node);
 }
 
  

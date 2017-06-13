@@ -22,8 +22,6 @@ double evalExpr(Node *node) {
 	 
 	case NTPLUS: return evalExpr(node->children[0])
 			+ evalExpr(node->children[1]);
-	/*case NTAFF: return evalExpr(node->children[0])
-			= evalExpr(node->children[1]);*/
 	case NTMIN: return evalExpr(node->children[0])
 			- evalExpr(node->children[1]);
 	case NTMULT: return evalExpr(node->children[0])
