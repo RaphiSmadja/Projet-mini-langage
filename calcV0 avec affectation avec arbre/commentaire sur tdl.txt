@@ -1,0 +1,7 @@
+Pour afficher les childrens qui correspondent aux opérations :
+
+printf("%s\n",node2String(node->children[0]));	NTPLUS
+printf("%s\n",node2String(node->children[1]));	NTEMPTY
+
+Pour afficher la node qui contient le type par défaut NTINSTLIST
+printf("%s\n\n",node2String(node));

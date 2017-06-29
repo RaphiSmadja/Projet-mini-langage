@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+#include <string.h>
 #include "minipseudtree.h"
 #include "minipseudeval.h"
 
@@ -20,14 +21,16 @@ Node root;
 
 
 %token   <node> NUM VAR
-%token   <node> PLUS MIN MULT DIV POW 
-%token   OP_PAR CL_PAR COLON AFF
+%token   <node> PLUS MIN MULT DIV POW AFF
+%token   OP_PAR CL_PAR COLON
 %token   EOL
 
 
 %type   <node> Instlist
 %type   <node> Inst
 %type   <node> Expr
+%type   <node> VarExpr
+%type   <node> MixedExpr
   
 
 %left OR
@@ -38,7 +41,6 @@ Node root;
 %left MULT  DIV
 %left NEG NOT
 %right  POW
-%left AFF
 
 %start Input
 %%
@@ -60,13 +62,12 @@ Instlist:
 
 Inst:
   Expr COLON { $$ = $1; }  
-	|VAR AFF Expr COLON {    printf("variable :%s\n",$1->var);$$ = $3;}
+	|VAR AFF MixedExpr COLON{  $$ = nodeChildren($2, $1, $3); }
   ;
 
 
 Expr:
   NUM     { $$ = $1; }
-  |VAR     { $$ = $1; }
   | Expr PLUS Expr     { $$ = nodeChildren($2, $1, $3); }
   | Expr MIN Expr      { $$ = nodeChildren($2, $1, $3); }
   | Expr MULT Expr     { $$ = nodeChildren($2, $1, $3); }
@@ -76,15 +77,43 @@ Expr:
   | OP_PAR Expr CL_PAR { $$ = $2; }
   ;
 
+VarExpr:
+  VAR     { $$ = $1; }
+  | VarExpr PLUS VarExpr     { $$ = nodeChildren($2, $1, $3); }
+  | VarExpr MIN VarExpr      { $$ = nodeChildren($2, $1, $3); }
+  | VarExpr MULT VarExpr     { $$ = nodeChildren($2, $1, $3); }
+  | VarExpr DIV VarExpr      { $$ = nodeChildren($2, $1, $3); }
+  | MIN VarExpr %prec NEG { $$ = nodeChildren($1, createNode(NTEMPTY), $2); }
+  | VarExpr POW VarExpr      { $$ = nodeChildren($2, $1, $3); }
+  | OP_PAR VarExpr CL_PAR { $$ = $2; }
+  ;
 
+MixedExpr:
+  VarExpr { $$ = $1; }
+  | Expr { $$ = $1; }
+  | VarExpr PLUS Expr { $$ = nodeChildren($2, $1, $3); }
+  | VarExpr MIN  Expr { $$ = nodeChildren($2, $1, $3); }
+  | VarExpr MULT Expr { $$ = nodeChildren($2, $1, $3); }
+  | VarExpr DIV  Expr { $$ = nodeChildren($2, $1, $3); }
+
+  | Expr PLUS VarExpr { $$ = nodeChildren($2, $1, $3); }
+  | Expr MIN  VarExpr { $$ = nodeChildren($2, $1, $3); }
+  | Expr MULT VarExpr { $$ = nodeChildren($2, $1, $3); }
+  | Expr DIV  VarExpr { $$ = nodeChildren($2, $1, $3); }
+
+  | MixedExpr PLUS MixedExpr { $$ = nodeChildren($2, $1, $3); }
+  | MixedExpr MIN  MixedExpr { $$ = nodeChildren($2, $1, $3); }
+  | MixedExpr MULT MixedExpr { $$ = nodeChildren($2, $1, $3); }
+  | MixedExpr DIV  MixedExpr { $$ = nodeChildren($2, $1, $3); }
+  ;
 %%
 
  
  
 
 int exec(Node *node) {
-   printGraph(node);
-   eval(node);
+  printGraph(node);
+  eval(node);
 }
 
  

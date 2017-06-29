@@ -18,7 +18,6 @@ Node* nodeChildren(Node* father, Node *child1, Node *child2) {
 	father->children[1] = child2;
 	return father;
 }
-
 const char* node2String(Node *node) {	
 	char *res;
 	switch ( node->type ) {

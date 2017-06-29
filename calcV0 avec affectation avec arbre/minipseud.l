@@ -14,7 +14,7 @@ num   [0-9]
 int    {num}+
 
 exp  [eE][+-]?{int}
-var   [a-zA-Z]+
+var   [_a-zA-Z]+[_a-zA-Z0-9]*
 real      {int}("."{int})?{exp}?
 
 
@@ -45,6 +45,7 @@ real      {int}("."{int})?{exp}?
 "*"   { yylval.node = createNode(NTMULT); return(MULT); }
 "/"   { yylval.node = createNode(NTDIV); return(DIV); }
 "^"   { yylval.node = createNode(NTPOW); return(POW); }
+"="  { yylval.node = createNode(NTAFF); return(AFF); }
 "="  { yylval.node = createNode(NTAFF); return(AFF); }
 
 

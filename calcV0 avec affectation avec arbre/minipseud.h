@@ -46,10 +46,10 @@
      MULT = 262,
      DIV = 263,
      POW = 264,
-     OP_PAR = 265,
-     CL_PAR = 266,
-     COLON = 267,
-     AFF = 268,
+     AFF = 265,
+     OP_PAR = 266,
+     CL_PAR = 267,
+     COLON = 268,
      EOL = 269,
      OR = 270,
      AND = 271,
@@ -71,7 +71,7 @@ typedef union YYSTYPE
 {
 
 /* Line 1676 of yacc.c  */
-#line 17 "minipseud.y"
+#line 18 "minipseud.y"
 
 	struct Node *node;
 
