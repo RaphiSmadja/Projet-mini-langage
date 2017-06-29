@@ -21,7 +21,7 @@ Node root;
 
 
 %token   <node> NUM VAR
-%token   <node> PLUS MIN MULT DIV POW AFF
+%token   <node> PLUS MIN MULT DIV POW AFF /*SHOWVAR*/
 %token   OP_PAR CL_PAR COLON
 %token   EOL
 
@@ -62,7 +62,8 @@ Instlist:
 
 Inst:
   Expr COLON { $$ = $1; }  
-	|VAR AFF MixedExpr COLON{  $$ = nodeChildren($2, $1, $3); }
+  |VAR AFF MixedExpr COLON{  $$ = nodeChildren($2, $1, $3); }
+	// |SHOWVAR OP_PAR CL_PAR COLON{  $$ = nodeChildren(createNode(NTSHOWVAR), $1, createNode(NTEMPTY)); }
   ;
 
 

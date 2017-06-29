@@ -17,7 +17,8 @@ enum NodeType {
 	NTDIV   = 324,
 	NTPOW   = 325,
 	NTEQ = 326,
-	NTAFF = 327
+	NTAFF = 327,
+	NTSHOWVAR = 328
 
 };
    

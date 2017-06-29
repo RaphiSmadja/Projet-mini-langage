@@ -31,6 +31,10 @@ const char* node2String(Node *node) {
 		sprintf(res, "NTNUM -> %f", node->val);
 		return res;
 	 
+	case NTVAR:     
+        res = (char *)malloc(sizeof(char) * 32);
+        sprintf(res, "NTVAR -> %s", node->var);
+        return res;
 
 	case NTPLUS:  return "NTPLUS";
 	case NTMIN:   return "NTMIN";
@@ -38,7 +42,6 @@ const char* node2String(Node *node) {
 	case NTDIV:   return "NTDIV";
 	case NTPOW:   return "NTPOW";
 	case NTAFF:   return "NTAFF";
-	case NTVAR :  return "NTVAR";
 	
 	default: return "UNK";
 	};

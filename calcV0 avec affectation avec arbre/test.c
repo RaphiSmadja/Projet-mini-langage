@@ -49,3 +49,12 @@ double getValue(LinkedList *list, char* name) {
 
     return 0;
 }
+void runVariable(LinkedList *list){
+	Variable *var = list->first->next;
+	while(var != NULL) {
+		printf("--------------\n");
+		printf("|%s = %.2f|\n",var->name,var->value);
+		printf("--------------\n");
+		var = var->next;
+	}
+}

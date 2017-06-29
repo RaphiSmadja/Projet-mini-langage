@@ -35,7 +35,7 @@ void evalInst(Node* node) {
                 values = malloc(sizeof(LinkedList));
             }  
             addVariable(values, node->children[0]->var, evalExpr(node->children[1]));
-            printf("%s = %f\n",node->children[0]->var,node->children[1]->val);                     
+            runVariable(values);
             break;
         case NTINSTLIST:
         	evalInst(node->children[0]);
@@ -45,7 +45,7 @@ void evalInst(Node* node) {
         	printf("%f\n", evalExpr(node));
         break;
         case NTPLUS:
-        	printf("resultat %f\n", evalExpr(node));
+        	printf("%f\n", evalExpr(node));
         break;
         case NTMIN:
         	printf("%f\n", evalExpr(node));
