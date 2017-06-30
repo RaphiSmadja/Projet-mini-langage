@@ -1,4 +1,4 @@
 1+8;
 toto=99;
 
-titi=71;
+titi=71+toto;
