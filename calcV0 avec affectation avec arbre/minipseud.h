@@ -41,26 +41,33 @@
    enum yytokentype {
      NUM = 258,
      VAR = 259,
-     PLUS = 260,
-     MIN = 261,
-     MULT = 262,
-     DIV = 263,
-     POW = 264,
-     AFF = 265,
-     OP_PAR = 266,
-     CL_PAR = 267,
-     COLON = 268,
-     EOL = 269,
-     OR = 270,
-     AND = 271,
-     NEQ = 272,
-     EQ = 273,
-     LET = 274,
-     GET = 275,
-     LT = 276,
-     GT = 277,
-     NOT = 278,
-     NEG = 279
+     IF = 260,
+     PLUS = 261,
+     MIN = 262,
+     MULT = 263,
+     SUP = 264,
+     DIV = 265,
+     POW = 266,
+     AFF = 267,
+     LT = 268,
+     LR = 269,
+     GT = 270,
+     GE = 271,
+     THEN = 272,
+     ELSE = 273,
+     FOR = 274,
+     OP_PAR = 275,
+     CL_PAR = 276,
+     COLON = 277,
+     EOL = 278,
+     OR = 279,
+     AND = 280,
+     NEQ = 281,
+     EQ = 282,
+     LET = 283,
+     GET = 284,
+     NOT = 285,
+     NEG = 286
    };
 #endif
 
@@ -78,7 +85,7 @@ typedef union YYSTYPE
 
 
 /* Line 1676 of yacc.c  */
-#line 82 "minipseud.tab.h"
+#line 89 "minipseud.tab.h"
 } YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */

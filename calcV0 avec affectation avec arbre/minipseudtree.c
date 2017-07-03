@@ -42,6 +42,11 @@ const char* node2String(Node *node) {
 	case NTDIV:   return "NTDIV";
 	case NTPOW:   return "NTPOW";
 	case NTAFF:   return "NTAFF";
+	case NTSUP:   return "NTSUP";
+    case NTIF:   return "NTIF";
+    case NTTHENELSE:   return "NTTHENELSE";
+    case NTTHEN:return "NTTHEN";
+
 	
 	default: return "UNK";
 	};

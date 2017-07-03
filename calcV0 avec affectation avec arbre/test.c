@@ -24,10 +24,10 @@ void addVariable(LinkedList *list, char *name, double value) {
         new->name = malloc(sizeof(name));
         strcpy(new->name, name);
         new->value = value;
-        
-        if (list->first == NULL) {        
-            list->first = new;      
-            list->last = new;  
+
+        if (list->first == NULL) {
+            list->first = new;
+            list->last = new;
         } else {
             list->last->next = new;
             list->last = list->last->next;
@@ -45,7 +45,7 @@ double getValue(LinkedList *list, char* name) {
         }
 
         var = var->next;
-    }    
+    }
 
     return 0;
 }

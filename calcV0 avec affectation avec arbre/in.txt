@@ -1,4 +1,10 @@
-1+8;
-toto=99;
 
-titi=71+toto;
+if(4>3) then 12+2;
+if(4>3) then 3+22 else 24+3;
+1+8;
+
+toto=12;
+
+
+
+if(5>10) then 4+2 ;
