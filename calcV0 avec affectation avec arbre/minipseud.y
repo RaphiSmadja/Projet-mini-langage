@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+#include <string.h>
 #include "minipseudtree.h"
 #include "minipseudeval.h"
 
@@ -19,9 +20,9 @@ Node root;
 }
 
 
-%token   <node> NUM VAR
-%token   <node> PLUS MIN MULT DIV POW 
-%token   OP_PAR CL_PAR COLON AFF
+%token   <node> NUM VAR SHOWVAR
+%token   <node> PLUS MIN MULT DIV POW AFF 
+%token   OP_PAR CL_PAR COLON
 %token   EOL
 
 
@@ -38,7 +39,6 @@ Node root;
 %left MULT  DIV
 %left NEG NOT
 %right  POW
-%left AFF
 
 %start Input
 %%
@@ -59,16 +59,15 @@ Instlist:
   ;
 
 Inst:
-  Expr COLON { $$ = $1; } 
-  //|VAR AFF Expr COLON {$$ = nodeChildren(createNode(NTINSTLIST), $1, createNode(NTEMPTY));}
-	|VAR AFF Expr COLON {printf("variable :%s\n",$1->var);$$ = $3;}
+  Expr COLON { $$ = $1; }  
+  |VAR AFF Expr COLON{  $$ = nodeChildren($2, $1, $3); }
+  |SHOWVAR OP_PAR VAR CL_PAR COLON{ $$ = nodeChildren($1,$3,createNode(NTEMPTY));/*$$ = nodeChildren($2 ,$1,createNode(NTEMPTY));*/ printf("weche afffiche\n");}
   ;
 
 
 Expr:
   NUM     { $$ = $1; }
-  VAR     { $$ = $1; }
-  | Expr AFF Expr      { $$ = nodeChildren(createNode($2, $1, $3)); }
+  | VAR     { $$ = $1; }
   | Expr PLUS Expr     { $$ = nodeChildren($2, $1, $3); }
   | Expr MIN Expr      { $$ = nodeChildren($2, $1, $3); }
   | Expr MULT Expr     { $$ = nodeChildren($2, $1, $3); }
@@ -77,15 +76,13 @@ Expr:
   | Expr POW Expr      { $$ = nodeChildren($2, $1, $3); }
   | OP_PAR Expr CL_PAR { $$ = $2; }
   ;
-
-
 %%
 
  
  
 
 int exec(Node *node) {
-   printGraph(node);
+  printGraph(node);
   eval(node);
 }
 

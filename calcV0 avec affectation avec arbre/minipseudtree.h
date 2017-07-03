@@ -4,20 +4,16 @@
 enum NodeType {
 	NTEMPTY = 0,
 	NTINSTLIST = 1,
-	
-	 
-
 	NTNUM   = 201,
 	NTVAR = 222,
-	 
-
 	NTPLUS  = 321,
 	NTMIN   = 322,
 	NTMULT  = 323,
 	NTDIV   = 324,
 	NTPOW   = 325,
 	NTEQ = 326,
-	NTAFF = 32
+	NTAFF = 327,
+	NTSHOWVAR = 328
 
 };
    

@@ -17,6 +17,7 @@ gcc -c minipseudtree.c -o minipseudtree.o
 gcc -c minipseudeval.c -o minipseudeval.o
 gcc -c minipseud.lex.c -o minipseud.lex.o
 gcc -c minipseud.y.c -o minipseud.y.o
-gcc -o minipseud minipseud.lex.o minipseud.y.o minipseudtree.o minipseudeval.o 
+gcc -c test.c -o test.o
+gcc -o minipseud minipseud.lex.o minipseud.y.o minipseudtree.o minipseudeval.o test.o -lm
 minipseud -f in.txt
 pause

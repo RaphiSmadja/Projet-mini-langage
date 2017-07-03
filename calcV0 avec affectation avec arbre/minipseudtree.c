@@ -18,7 +18,6 @@ Node* nodeChildren(Node* father, Node *child1, Node *child2) {
 	father->children[1] = child2;
 	return father;
 }
-
 const char* node2String(Node *node) {	
 	char *res;
 	switch ( node->type ) {
@@ -32,6 +31,10 @@ const char* node2String(Node *node) {
 		sprintf(res, "NTNUM -> %f", node->val);
 		return res;
 	 
+	case NTVAR:     
+        res = (char *)malloc(sizeof(char) * 32);
+        sprintf(res, "NTVAR -> %s", node->var);
+        return res;
 
 	case NTPLUS:  return "NTPLUS";
 	case NTMIN:   return "NTMIN";
@@ -39,6 +42,7 @@ const char* node2String(Node *node) {
 	case NTDIV:   return "NTDIV";
 	case NTPOW:   return "NTPOW";
 	case NTAFF:   return "NTAFF";
+	case NTSHOWVAR:   return "NTSHOWVAR";
 	
 	default: return "UNK";
 	};
@@ -70,7 +74,7 @@ void printGraphRecu(Node *node, int n) {
 	
 	// Hack : No children only if null or number 
 	if ((node->children != NULL) && 
-		(node->type != NTNUM)  ) {
+		(node->type != NTNUM)  && (node->type != NTVAR)) {
 		printGraphRecu(node->children[0], n+1);
 		printGraphRecu(node->children[1], n+1);
 	}
@@ -79,8 +83,7 @@ void printGraphRec(Node *node, int depth, int fdepth) {
 	printf("%s%s\n", makeSpaces(depth, fdepth), node2String(node));
 	
 	// Hack : No children only if null or number 
-	if ((node->children != NULL) && 
-		(node->type != NTNUM)  ) {
+	if ((node->children != NULL) && (node->type != NTNUM) && (node->type != NTVAR)) {
 		printGraphRec(node->children[0], depth + 1, depth);
 		printGraphRec(node->children[1], depth + 1, depth);
 	}
