@@ -21,7 +21,10 @@ double evalExpr(Node *node) {
 	    case NTDIV: return evalExpr(node->children[0]) / evalExpr(node->children[1]);
 	    case NTPOW: return pow(evalExpr(node->children[0]),	evalExpr(node->children[1]));
         case NTVAR: return getValue(values, node->var);
-        default: 
+		case NTSUP:  return evalExpr(node->children[0]) > evalExpr(node->children[1]);
+        case NTTHENELSE:  return getValue(values, node->var);
+        case NTTHEN:  return getValue(values, node->var);
+	    default: 
 		    printf("Error in evalExpr ... Wrong node type: %s\n", node2String(node));
 		    exit(1);
     };
@@ -35,6 +38,7 @@ void evalInst(Node* node) {
                 values = malloc(sizeof(LinkedList));
             }  
             addVariable(values, node->children[0]->var, evalExpr(node->children[1]));
+            runVariable(values);
         break;
         case NTSHOWVAR:   
         	checkVariable(values, node->children[0]->var);
@@ -43,6 +47,7 @@ void evalInst(Node* node) {
         	evalInst(node->children[0]);
         	evalInst(node->children[1]);
         break; 
+        	return;
         case NTNUM:
         	printf("%f\n", evalExpr(node));
         break;
@@ -61,6 +66,27 @@ void evalInst(Node* node) {
         case NTPOW:
         	printf("%f\n", evalExpr(node));
         break;
+		case NTSUP:
+            if(evalExpr(node->children[0]) < evalExpr(node->children[1])){
+                printf("okay");
+            }
+            else{
+                printf("le deuxieme");
+            }
+			break;
+        case NTIF:
+            if(evalExpr(node->children[0])==1){
+                printf("%f\n", evalExpr(node->children[1]->children[0]));
+            }else{
+                printf("%f\n", evalExpr(node->children[1]->children[1]));
+            }
+            break;
+        case NTTHENELSE:
+            break;
+
+        case NTTHEN:
+            break;
+
 	    case NTEMPTY:            
             break;
         default:

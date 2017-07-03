@@ -1,3 +1,5 @@
-az=1;
-qa=az+1;
-ba=qa+az;
+_dede=5;
+_dada=1+9;
+ko_4_ko=_dede-1;
+if(_dada>_dede) then 12+2;
+if(_dede>ko_4_ko) then 3+22 else 24+3;

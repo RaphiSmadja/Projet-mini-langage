@@ -21,9 +21,13 @@ real      {int}("."{int})?{exp}?
 
 %%
 
-{empty}  { /* Nothing */ }
+"if"  { yylval.node = createNode(NTIF); return(IF); }
+"else"  { yylval.node = createNode(NTTHENELSE); return(ELSE); }
+"then"	{  yylval.node = createNode(NTTHEN); return THEN;}
+"for"	{return FOR;}
 
- 
+
+{empty}  { /* Nothing */ }
 
 "("   return(OP_PAR);
 ")"   return(CL_PAR);
@@ -40,6 +44,7 @@ real      {int}("."{int})?{exp}?
     return(NUM);
     }
 
+
 "+"   { yylval.node = createNode(NTPLUS); return(PLUS); }
 "-"   { yylval.node = createNode(NTMIN); return(MIN); }
 "*"   { yylval.node = createNode(NTMULT); return(MULT); }
@@ -47,11 +52,10 @@ real      {int}("."{int})?{exp}?
 "^"   { yylval.node = createNode(NTPOW); return(POW); }
 "="  { yylval.node = createNode(NTAFF); return(AFF); }
 "show_var"  { yylval.node = createNode(NTSHOWVAR); return(SHOWVAR); }
+">"  { yylval.node = createNode(NTSUP); return(SUP); }
 
 
 
- 
- 
 
 ";"    { return(COLON); }
 
