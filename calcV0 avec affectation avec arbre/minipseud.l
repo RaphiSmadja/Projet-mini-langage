@@ -33,7 +33,7 @@ real      {int}("."{int})?{exp}?
     yylval.node->var = (char*)_strdup(yytext);
     return(VAR);
     }
-	
+
 {real}    {
     yylval.node = createNode(NTNUM);
     yylval.node->val = atof(yytext);
@@ -46,8 +46,7 @@ real      {int}("."{int})?{exp}?
 "/"   { yylval.node = createNode(NTDIV); return(DIV); }
 "^"   { yylval.node = createNode(NTPOW); return(POW); }
 "="  { yylval.node = createNode(NTAFF); return(AFF); }
-"="  { yylval.node = createNode(NTAFF); return(AFF); }
-
+"show_var"  { yylval.node = createNode(NTSHOWVAR); return(SHOWVAR); }
 
 
 

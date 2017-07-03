@@ -1,4 +1,3 @@
-1+8;
-toto=99;
-
-titi=71+toto;
+az=1;
+qa=az+1;
+ba=qa+az;

@@ -20,8 +20,8 @@ Node root;
 }
 
 
-%token   <node> NUM VAR
-%token   <node> PLUS MIN MULT DIV POW AFF /*SHOWVAR*/
+%token   <node> NUM VAR SHOWVAR
+%token   <node> PLUS MIN MULT DIV POW AFF 
 %token   OP_PAR CL_PAR COLON
 %token   EOL
 
@@ -29,8 +29,6 @@ Node root;
 %type   <node> Instlist
 %type   <node> Inst
 %type   <node> Expr
-%type   <node> VarExpr
-%type   <node> MixedExpr
   
 
 %left OR
@@ -62,13 +60,14 @@ Instlist:
 
 Inst:
   Expr COLON { $$ = $1; }  
-  |VAR AFF MixedExpr COLON{  $$ = nodeChildren($2, $1, $3); }
-	// |SHOWVAR OP_PAR CL_PAR COLON{  $$ = nodeChildren(createNode(NTSHOWVAR), $1, createNode(NTEMPTY)); }
+  |VAR AFF Expr COLON{  $$ = nodeChildren($2, $1, $3); }
+  |SHOWVAR OP_PAR VAR CL_PAR COLON{ $$ = nodeChildren($1,$3,createNode(NTEMPTY));/*$$ = nodeChildren($2 ,$1,createNode(NTEMPTY));*/ printf("weche afffiche\n");}
   ;
 
 
 Expr:
   NUM     { $$ = $1; }
+  | VAR     { $$ = $1; }
   | Expr PLUS Expr     { $$ = nodeChildren($2, $1, $3); }
   | Expr MIN Expr      { $$ = nodeChildren($2, $1, $3); }
   | Expr MULT Expr     { $$ = nodeChildren($2, $1, $3); }
@@ -76,36 +75,6 @@ Expr:
   | MIN Expr %prec NEG { $$ = nodeChildren($1, createNode(NTEMPTY), $2); }
   | Expr POW Expr      { $$ = nodeChildren($2, $1, $3); }
   | OP_PAR Expr CL_PAR { $$ = $2; }
-  ;
-
-VarExpr:
-  VAR     { $$ = $1; }
-  | VarExpr PLUS VarExpr     { $$ = nodeChildren($2, $1, $3); }
-  | VarExpr MIN VarExpr      { $$ = nodeChildren($2, $1, $3); }
-  | VarExpr MULT VarExpr     { $$ = nodeChildren($2, $1, $3); }
-  | VarExpr DIV VarExpr      { $$ = nodeChildren($2, $1, $3); }
-  | MIN VarExpr %prec NEG { $$ = nodeChildren($1, createNode(NTEMPTY), $2); }
-  | VarExpr POW VarExpr      { $$ = nodeChildren($2, $1, $3); }
-  | OP_PAR VarExpr CL_PAR { $$ = $2; }
-  ;
-
-MixedExpr:
-  VarExpr { $$ = $1; }
-  | Expr { $$ = $1; }
-  | VarExpr PLUS Expr { $$ = nodeChildren($2, $1, $3); }
-  | VarExpr MIN  Expr { $$ = nodeChildren($2, $1, $3); }
-  | VarExpr MULT Expr { $$ = nodeChildren($2, $1, $3); }
-  | VarExpr DIV  Expr { $$ = nodeChildren($2, $1, $3); }
-
-  | Expr PLUS VarExpr { $$ = nodeChildren($2, $1, $3); }
-  | Expr MIN  VarExpr { $$ = nodeChildren($2, $1, $3); }
-  | Expr MULT VarExpr { $$ = nodeChildren($2, $1, $3); }
-  | Expr DIV  VarExpr { $$ = nodeChildren($2, $1, $3); }
-
-  | MixedExpr PLUS MixedExpr { $$ = nodeChildren($2, $1, $3); }
-  | MixedExpr MIN  MixedExpr { $$ = nodeChildren($2, $1, $3); }
-  | MixedExpr MULT MixedExpr { $$ = nodeChildren($2, $1, $3); }
-  | MixedExpr DIV  MixedExpr { $$ = nodeChildren($2, $1, $3); }
   ;
 %%
 

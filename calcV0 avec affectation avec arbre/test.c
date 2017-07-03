@@ -49,6 +49,7 @@ double getValue(LinkedList *list, char* name) {
 
     return 0;
 }
+
 void runVariable(LinkedList *list){
 	Variable *var = list->first->next;
 	while(var != NULL) {
@@ -56,5 +57,26 @@ void runVariable(LinkedList *list){
 		printf("|%s = %.2f|\n",var->name,var->value);
 		printf("--------------\n");
 		var = var->next;
+	}
+}
+
+void checkVariable(LinkedList *list, char *name){
+	if (list == NULL)
+	{
+		printf("Oups nous n'avons pas de variable enregistré\n");
+	} else {
+		Variable *var = list->first;
+		int find = 0;
+		while(var != NULL){
+			if (strcmp(name,var->name) == 0)
+			{
+				find = 1;
+				printf("%s -> %f\n",var->name,var->value);
+			}
+		}
+		if (find == 0)
+		{
+			printf("Cette variable n'existe pas \n");
+		}
 	}
 }

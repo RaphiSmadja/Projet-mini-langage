@@ -21,7 +21,7 @@ double evalExpr(Node *node) {
 	    case NTDIV: return evalExpr(node->children[0]) / evalExpr(node->children[1]);
 	    case NTPOW: return pow(evalExpr(node->children[0]),	evalExpr(node->children[1]));
         case NTVAR: return getValue(values, node->var);
-	    default: 
+        default: 
 		    printf("Error in evalExpr ... Wrong node type: %s\n", node2String(node));
 		    exit(1);
     };
@@ -35,12 +35,14 @@ void evalInst(Node* node) {
                 values = malloc(sizeof(LinkedList));
             }  
             addVariable(values, node->children[0]->var, evalExpr(node->children[1]));
-            runVariable(values);
-            break;
+        break;
+        case NTSHOWVAR:   
+        	checkVariable(values, node->children[0]->var);
+        break;
         case NTINSTLIST:
         	evalInst(node->children[0]);
         	evalInst(node->children[1]);
-        	return; 
+        break; 
         case NTNUM:
         	printf("%f\n", evalExpr(node));
         break;
