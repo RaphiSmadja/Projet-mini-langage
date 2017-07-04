@@ -25,8 +25,8 @@ real      {int}("."{int})?{exp}?
 "else"  { yylval.node = createNode(NTTHENELSE); return(ELSE); }
 "then"	{  yylval.node = createNode(NTTHEN); return THEN;}
 "show"  { yylval.node = createNode(NTSHOWVAR); return(SHOWVAR); }
+"ToLowerCase"	{ yylval.node = createNode(NTTOLOWER); return(TOLOWER); }
 "for"	{return FOR;}
-
 
 {empty}  { /* Nothing */ }
 

@@ -2,6 +2,7 @@
 #include <string.h>
 #include <stdio.h>
 #include "test.h"
+#include <ctype.h>
 
 void addVariable(LinkedList *list, char *name, double value) {
     int found = 0;
@@ -82,4 +83,12 @@ void checkVariable(LinkedList *list, char *name){
 			printf("Cette variable n'existe pas \n");
 		}
 	}
+}
+void to_lower(char *name){
+	int i =0;
+	 while( name[i] ) 
+   {
+      putchar(tolower(name[i]));
+      i++;
+   }
 }

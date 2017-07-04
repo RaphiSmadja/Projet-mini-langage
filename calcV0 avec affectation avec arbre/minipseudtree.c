@@ -45,6 +45,8 @@ const char* node2String(Node *node) {
 	case NTPOW:   return "NTPOW";
 	case NTAFF:   return "NTAFF";
 	case NTSHOWVAR:  return "NTSHOWVAR";
+	case NTTOLOWER:  return "NTTOLOWER";
+	/*case NTSCANF:  return "NTSCANF";*/
 	case NTSUP:   return "NTSUP";
     case NTIF:   return "NTIF";
     case NTTHENELSE:   return "NTTHENELSE";

@@ -42,33 +42,34 @@
      NUM = 258,
      VAR = 259,
      SHOWVAR = 260,
-     IF = 261,
-     PLUS = 262,
-     MIN = 263,
-     MULT = 264,
-     SUP = 265,
-     DIV = 266,
-     POW = 267,
-     AFF = 268,
-     LT = 269,
-     LR = 270,
-     GT = 271,
-     GE = 272,
-     THEN = 273,
-     ELSE = 274,
-     FOR = 275,
-     OP_PAR = 276,
-     CL_PAR = 277,
-     COLON = 278,
-     EOL = 279,
-     OR = 280,
-     AND = 281,
-     NEQ = 282,
-     EQ = 283,
-     LET = 284,
-     GET = 285,
-     NOT = 286,
-     NEG = 287
+     TOLOWER = 261,
+     IF = 262,
+     PLUS = 263,
+     MIN = 264,
+     MULT = 265,
+     SUP = 266,
+     DIV = 267,
+     POW = 268,
+     AFF = 269,
+     LT = 270,
+     LR = 271,
+     GT = 272,
+     GE = 273,
+     THEN = 274,
+     ELSE = 275,
+     FOR = 276,
+     OP_PAR = 277,
+     CL_PAR = 278,
+     COLON = 279,
+     EOL = 280,
+     OR = 281,
+     AND = 282,
+     NEQ = 283,
+     EQ = 284,
+     LET = 285,
+     GET = 286,
+     NOT = 287,
+     NEG = 288
    };
 #endif
 
@@ -86,7 +87,7 @@ typedef union YYSTYPE
 
 
 /* Line 1676 of yacc.c  */
-#line 90 "minipseud.tab.h"
+#line 91 "minipseud.tab.h"
 } YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */

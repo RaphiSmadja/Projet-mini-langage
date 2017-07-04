@@ -17,7 +17,9 @@ enum NodeType {
 	NTSUP = 329,
     NTIF= 330,
     NTTHENELSE= 331,
-    NTTHEN= 332
+    NTTHEN= 332,
+    NTTOLOWER= 333
+	/*NTSCANF=333 */
 
 };
    
