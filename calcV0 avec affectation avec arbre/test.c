@@ -63,16 +63,19 @@ void runVariable(LinkedList *list){
 void checkVariable(LinkedList *list, char *name){
 	if (list == NULL)
 	{
-		printf("Oups nous n'avons pas de variable enregistré\n");
+		printf("Oups nous n'avons pas de variable enregistre\n");
 	} else {
-		Variable *var = list->first;
+		Variable *var = list->first->next;
 		int find = 0;
 		while(var != NULL){
 			if (strcmp(name,var->name) == 0)
 			{
 				find = 1;
+				printf("on a trouve la variable \n");
 				printf("%s -> %f\n",var->name,var->value);
+				break;
 			}
+			var = var->next;
 		}
 		if (find == 0)
 		{

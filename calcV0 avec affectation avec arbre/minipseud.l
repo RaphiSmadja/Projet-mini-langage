@@ -24,6 +24,7 @@ real      {int}("."{int})?{exp}?
 "if"  { yylval.node = createNode(NTIF); return(IF); }
 "else"  { yylval.node = createNode(NTTHENELSE); return(ELSE); }
 "then"	{  yylval.node = createNode(NTTHEN); return THEN;}
+"show"  { yylval.node = createNode(NTSHOWVAR); return(SHOWVAR); }
 "for"	{return FOR;}
 
 
@@ -51,7 +52,6 @@ real      {int}("."{int})?{exp}?
 "/"   { yylval.node = createNode(NTDIV); return(DIV); }
 "^"   { yylval.node = createNode(NTPOW); return(POW); }
 "="  { yylval.node = createNode(NTAFF); return(AFF); }
-"show_var"  { yylval.node = createNode(NTSHOWVAR); return(SHOWVAR); }
 ">"  { yylval.node = createNode(NTSUP); return(SUP); }
 
 

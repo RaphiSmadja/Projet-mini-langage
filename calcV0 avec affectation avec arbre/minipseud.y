@@ -65,11 +65,11 @@ Instlist:
 Inst:
   Expr COLON { $$ = $1; }  
   |VAR AFF Expr COLON{  $$ = nodeChildren($2, $1, $3); }
-  |SHOWVAR OP_PAR VAR CL_PAR COLON{ $$ = nodeChildren($1,$3,createNode(NTEMPTY));/*$$ = nodeChildren($2 ,$1,createNode(NTEMPTY));*/ printf("weche afffiche\n");}
+  |SHOWVAR OP_PAR VAR CL_PAR COLON{ $$ = nodeChildren($1,$3,createNode(NTEMPTY));}
   | IF OP_PAR Expr CL_PAR Statement  { $$ = nodeChildren($1, $3, $5);}
   | FOR OP_PAR Expr COLON  Expr COLON Expr CL_PAR THEN Expr COLON { $$=$10; printf("-- BOUCLE FOR \n");}
-  //| WHILE OP_PAR Expr CL_PAR THEN Expr COLON { $$ = $5; printf("-- WHILE  \n")} 
   ;
+  //| WHILE OP_PAR Expr CL_PAR THEN Expr COLON { $$ = $5; printf("-- WHILE  \n")} 
 
   //| IF OP_PAR Expr CL_PAR THEN Expr COLON{  $$=$6; test($3,$6);}
   // | IF OP_PAR Expr CL_PAR THEN Expr COLON{  $$=$6; test($3,$6); printf("IF FONCTIONNNE %d\n", $6->children[0]->var);}

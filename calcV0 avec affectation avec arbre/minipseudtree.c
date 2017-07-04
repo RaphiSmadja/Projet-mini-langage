@@ -18,6 +18,7 @@ Node* nodeChildren(Node* father, Node *child1, Node *child2) {
 	father->children[1] = child2;
 	return father;
 }
+
 const char* node2String(Node *node) {	
 	char *res;
 	switch ( node->type ) {
@@ -36,13 +37,14 @@ const char* node2String(Node *node) {
         sprintf(res, "NTVAR -> %s", node->var);
         return res;
 
+
 	case NTPLUS:  return "NTPLUS";
 	case NTMIN:   return "NTMIN";
 	case NTMULT:  return "NTMULT";
 	case NTDIV:   return "NTDIV";
 	case NTPOW:   return "NTPOW";
 	case NTAFF:   return "NTAFF";
-	case NTSHOWVAR:   return "NTSHOWVAR";
+	case NTSHOWVAR:  return "NTSHOWVAR";
 	case NTSUP:   return "NTSUP";
     case NTIF:   return "NTIF";
     case NTTHENELSE:   return "NTTHENELSE";
