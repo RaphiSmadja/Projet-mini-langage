@@ -1,2 +1,2 @@
-
-ToUpperCase(getmoney);
+a=1;
+a--;

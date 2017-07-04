@@ -20,8 +20,8 @@ Node root;
 }
 
 
-%token   <node> NUM VAR SHOWVAR TOLOWER TOUPPER/*SCANF*/
-%token   <node> IF PLUS MIN MULT SUP DIV POW AFF  LT LR GT GE THEN ELSE FOR  /*SHOWVAR*/
+%token   <node> NUM VAR SHOWVAR TOLOWER TOUPPER /*SCANF*/
+%token   <node> IF PLUS MIN MULT SUP DIV POW AFF  LT LR GT GE THEN ELSE FOR  INCREMENTATION DECREMENTATION/*SHOWVAR*/
 %token   OP_PAR CL_PAR COLON
 %token   EOL
 
@@ -101,6 +101,8 @@ Expr:
   | Expr DIV Expr      { $$ = nodeChildren($2, $1, $3); }
   | MIN Expr %prec NEG { $$ = nodeChildren($1, createNode(NTEMPTY), $2); }
   | Expr POW Expr      { $$ = nodeChildren($2, $1, $3); }
+  | Expr INCREMENTATION     { $$ = nodeChildren($2, $1, createNode(NTEMPTY)); }
+  | Expr DECREMENTATION     { $$ = nodeChildren($2, $1, createNode(NTEMPTY)); }
   ;
 %%
 

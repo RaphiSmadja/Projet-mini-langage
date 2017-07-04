@@ -47,7 +47,9 @@ real      {int}("."{int})?{exp}?
     }
 
 
+"++"   { yylval.node = createNode(NTINCREMENTATION); return(INCREMENTATION); }
 "+"   { yylval.node = createNode(NTPLUS); return(PLUS); }
+"--"   { yylval.node = createNode(NTDECREMENTATION); return(DECREMENTATION); }
 "-"   { yylval.node = createNode(NTMIN); return(MIN); }
 "*"   { yylval.node = createNode(NTMULT); return(MULT); }
 "/"   { yylval.node = createNode(NTDIV); return(DIV); }

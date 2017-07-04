@@ -12,10 +12,24 @@ int funcDepth = 0;
 LinkedList *values;
 
 double evalExpr(Node *node) {
+	double res;	
+	double result=0.0;	
 	switch ( node->type ) {
 	    case NTEMPTY:  return 0.0;
 	    case NTNUM: return node->val;	 
 	    case NTPLUS: return evalExpr(node->children[0])	+ evalExpr(node->children[1]);
+	    case NTINCREMENTATION: 
+	    res=getValue(values, node->children[0]->var);
+	    result = res+1;
+	    addVariable(values,node->children[0]->var,result);
+	    runVariable(values);
+	    return result;
+	    case NTDECREMENTATION: 
+	    res=getValue(values, node->children[0]->var);
+	    result = res-1;
+	    addVariable(values,node->children[0]->var,result);
+	    runVariable(values);
+	    return result;
 	    case NTMIN: return evalExpr(node->children[0]) - evalExpr(node->children[1]);
 	    case NTMULT: return evalExpr(node->children[0])	* evalExpr(node->children[1]);
 	    case NTDIV: return evalExpr(node->children[0]) / evalExpr(node->children[1]);
@@ -56,6 +70,12 @@ void evalInst(Node* node) {
         break; 
         	return;
         case NTNUM:
+        	printf("%f\n", evalExpr(node));
+        break;
+        case NTINCREMENTATION:
+        	printf("%f\n", evalExpr(node));
+        break;
+        case NTDECREMENTATION:
         	printf("%f\n", evalExpr(node));
         break;
         case NTPLUS:
