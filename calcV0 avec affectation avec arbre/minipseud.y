@@ -20,7 +20,7 @@ Node root;
 }
 
 
-%token   <node> NUM VAR SHOWVAR TOLOWER /*SCANF*/
+%token   <node> NUM VAR SHOWVAR TOLOWER TOUPPER/*SCANF*/
 %token   <node> IF PLUS MIN MULT SUP DIV POW AFF  LT LR GT GE THEN ELSE FOR  /*SHOWVAR*/
 %token   OP_PAR CL_PAR COLON
 %token   EOL
@@ -67,6 +67,7 @@ Inst:
   | VAR AFF Expr COLON{  $$ = nodeChildren($2, $1, $3); }
   | SHOWVAR OP_PAR VAR CL_PAR COLON{ $$ = nodeChildren($1,$3,createNode(NTEMPTY));}
   | TOLOWER OP_PAR VAR CL_PAR COLON{ $$ = nodeChildren($1,$3,createNode(NTEMPTY));}
+  | TOUPPER OP_PAR VAR CL_PAR COLON{ $$ = nodeChildren($1,$3,createNode(NTEMPTY));}
   /*| SCANF OP_PAR CL_PAR COLON{ $$ = nodeChildren($2,$1,createNode(NTEMPTY));}*/
   | IF OP_PAR Expr CL_PAR Statement  { $$ = nodeChildren($1, $3, $5);}
   | FOR OP_PAR Expr COLON  Expr COLON Expr CL_PAR THEN Expr COLON { $$=$10; printf("-- BOUCLE FOR \n");}

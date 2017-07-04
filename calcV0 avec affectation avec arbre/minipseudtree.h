@@ -18,15 +18,16 @@ enum NodeType {
     NTIF= 330,
     NTTHENELSE= 331,
     NTTHEN= 332,
-    NTTOLOWER= 333
-	/*NTSCANF=333 */
+    NTTOLOWER= 333,
+    NTTOUPPER= 334
+    /*NTSCANF=333 */
 
 };
    
 typedef struct Node {
 	enum NodeType type;
 	union { 
-		double val;
+		float val;
 		char* var;
 		struct Node** children;
 	} ;

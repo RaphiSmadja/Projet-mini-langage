@@ -47,6 +47,9 @@ void evalInst(Node* node) {
         case NTTOLOWER:   
      		to_lower(node->children[0]->var);
         break;
+        case NTTOUPPER:   
+     		to_upper(node->children[0]->var);
+        break;
         case NTINSTLIST:
         	evalInst(node->children[0]);
         	evalInst(node->children[1]);

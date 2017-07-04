@@ -1,1 +1,2 @@
-ToLowerCase(GETMONEY);
+
+ToUpperCase(getmoney);

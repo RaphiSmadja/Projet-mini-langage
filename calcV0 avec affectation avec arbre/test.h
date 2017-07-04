@@ -16,3 +16,4 @@ double getValue(LinkedList *list, char *name);
 void runVariable(LinkedList *list);
 void checkVariable(LinkedList *list, char *name);
 void to_lower(char *name);
+void to_upper(char *name);

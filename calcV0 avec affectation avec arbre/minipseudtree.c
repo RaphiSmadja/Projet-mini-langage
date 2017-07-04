@@ -37,7 +37,8 @@ const char* node2String(Node *node) {
         sprintf(res, "NTVAR -> %s", node->var);
         return res;
 
-
+	/*case NTMODULO:   return "NTMODULO";
+*/
 	case NTPLUS:  return "NTPLUS";
 	case NTMIN:   return "NTMIN";
 	case NTMULT:  return "NTMULT";
@@ -46,7 +47,6 @@ const char* node2String(Node *node) {
 	case NTAFF:   return "NTAFF";
 	case NTSHOWVAR:  return "NTSHOWVAR";
 	case NTTOLOWER:  return "NTTOLOWER";
-	/*case NTSCANF:  return "NTSCANF";*/
 	case NTSUP:   return "NTSUP";
     case NTIF:   return "NTIF";
     case NTTHENELSE:   return "NTTHENELSE";
