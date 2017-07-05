@@ -58,6 +58,13 @@ Line:
 Instlist:
     Inst { $$ = nodeChildren(createNode(NTINSTLIST), $1, createNode(NTEMPTY)); } 
   | Instlist Inst { $$ = nodeChildren(createNode(NTINSTLIST), $1, $2); }
+  //GESTION ERREUR D'affectation
+  | VAR AFF COLON{ printf("IMPOSSIBLE - VAR AFF COLON - ERREUR DE SYNTAXE VAR = NOMBRE \n");$$ = nodeChildren(createNode(NTEMPTY), createNode(NTEMPTY), createNode(NTEMPTY));}
+  | VAR AFF { printf("IMPOSSIBLE - VAR AFF - ERREUR DE SYNTAXE VAR = NOMBRE \n");$$ = nodeChildren(createNode(NTEMPTY), createNode(NTEMPTY), createNode(NTEMPTY));}
+  | VAR COLON { printf("IMPOSSIBLE - VAR COLON - ERREUR DE SYNTAXE VAR = NOMBRE \n");$$ = nodeChildren(createNode(NTEMPTY), createNode(NTEMPTY), createNode(NTEMPTY));}
+  | AFF COLON { printf("IMPOSSIBLE - AFF COLON - ERREUR DE SYNTAXE VAR = NOMBRE \n");$$ = nodeChildren(createNode(NTEMPTY), createNode(NTEMPTY), createNode(NTEMPTY));}
+  | AFF Expr COLON{ printf("IMPOSSIBLE - AFF Expr COLON - ERREUR DE SYNTAXE VAR = NOMBRE \n");$$ = nodeChildren(createNode(NTEMPTY), createNode(NTEMPTY), createNode(NTEMPTY));}
+  | AFF Expr { printf("IMPOSSIBLE - AFF Expr - ERREUR DE SYNTAXE VAR = NOMBRE \n");$$ = nodeChildren(createNode(NTEMPTY), createNode(NTEMPTY), createNode(NTEMPTY));}
   ;
 
 
@@ -71,7 +78,7 @@ Inst:
   /*| SCANF OP_PAR CL_PAR COLON{ $$ = nodeChildren($2,$1,createNode(NTEMPTY));}*/
   | IF OP_PAR Expr CL_PAR Statement  { $$ = nodeChildren($1, $3, $5);}
   | WHILE OP_PAR Expr CL_PAR Statement {  $$ = nodeChildren($1, $3, $5);}
-  | FOR OP_PAR Statement CL_PAR Statement {  $$ = nodeChildren($1, $3, $5);}
+  | FOR OP_PAR Statement  CL_PAR Statement {  $$ = nodeChildren($1, $3, $5);}
   ;
 
 
@@ -84,6 +91,7 @@ Statement:
 Expr:
   NUM     { $$ = $1; }
   | VAR     { $$ = $1; }
+  | VAR AFF Expr {  $$ = nodeChildren($2, $1, $3); }
   | Expr AND Expr     { $$ = nodeChildren($2, $1, $3); }
   | Expr OR Expr     { $$ = nodeChildren($2, $1, $3); }
   | Expr SUP Expr     { $$ = nodeChildren($2, $1, $3); }
@@ -103,16 +111,6 @@ Expr:
   ;
 %%
 
-
-
- char st[100][10];
- int top=0;
- char i_[2]="0";
- char temp[2]="t";
-
- int label[20];
- int lnum=0;
- int ltop=0;
 
 int exec(Node *node) {
   printGraph(node);

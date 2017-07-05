@@ -28,6 +28,14 @@ double evalExpr(Node *node) {
             addVariable(values,node->children[0]->var,result);
             runVariable(values);
             return result;
+        case NTAFF:
+           if (values == NULL) {
+                values = malloc(sizeof(LinkedList));
+            } 
+            printf("%s\n",node2String(node->children[0]));
+            addVariable(values, node->children[0]->var, evalExpr(node->children[1]));
+            runVariable(values);
+            return node->children[1]->val;
         case NTNUM: return node->val;
 	    case NTPLUS: return evalExpr(node->children[0])	+ evalExpr(node->children[1]);
 	    case NTMIN: return evalExpr(node->children[0]) - evalExpr(node->children[1]);
@@ -60,7 +68,8 @@ void evalInst(Node* node) {
         case NTAFF:  
             if (values == NULL) {
                 values = malloc(sizeof(LinkedList));
-            }  
+            } 
+            printf("%s\n",node2String(node->children[0]));
             addVariable(values, node->children[0]->var, evalExpr(node->children[1]));
             runVariable(values);
         break;
@@ -142,7 +151,7 @@ void evalInst(Node* node) {
         case NTFOR:
             while(evalExpr(node->children[0]->children[0])==1){
                 printf("%f\n", evalExpr(node->children[1]->children[0]));
-                evalExpr(node->children[1]->children[1]);
+                evalInst(node->children[0]->children[1]);
             }
             break;
         case NTTHENELSE:

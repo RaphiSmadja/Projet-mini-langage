@@ -1,5 +1,4 @@
-
-for(then 1<2;4)then 3+4;
-
-
-
+bas=12;
+titi=bas;
+sa=0;
+for(then titi<15;titi++)then sa=titi;
