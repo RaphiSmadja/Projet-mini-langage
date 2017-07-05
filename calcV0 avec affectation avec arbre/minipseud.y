@@ -71,12 +71,13 @@ Inst:
   /*| SCANF OP_PAR CL_PAR COLON{ $$ = nodeChildren($2,$1,createNode(NTEMPTY));}*/
   | IF OP_PAR Expr CL_PAR Statement  { $$ = nodeChildren($1, $3, $5);}
   | WHILE OP_PAR Expr CL_PAR Statement {  $$ = nodeChildren($1, $3, $5);}
-  | FOR OP_PAR Expr COLON Expr COLON Expr  CL_PAR Statement {  $$ = nodeChildren($1, $3, $5);}
+  | FOR OP_PAR Statement CL_PAR Statement {  $$ = nodeChildren($1, $3, $5);}
   ;
 
 
 Statement:
-   THEN Expr COLON {$$ = nodeChildren($1, $2,  createNode(NTEMPTY));}
+    THEN Expr COLON Expr {$$ = nodeChildren($1, $2, $4);}
+   | THEN Expr COLON {$$ = nodeChildren($1, $2,  createNode(NTEMPTY));}
    | THEN Expr ELSE Expr COLON {$$ = nodeChildren($3, $2, $4);}
 
 

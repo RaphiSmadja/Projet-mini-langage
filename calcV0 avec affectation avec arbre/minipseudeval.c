@@ -140,8 +140,9 @@ void evalInst(Node* node) {
             }
             break;
         case NTFOR:
-            while(evalExpr(node->children[0])==1){
+            while(evalExpr(node->children[0]->children[0])==1){
                 printf("%f\n", evalExpr(node->children[1]->children[0]));
+                evalExpr(node->children[1]->children[1]);
             }
             break;
         case NTTHENELSE:

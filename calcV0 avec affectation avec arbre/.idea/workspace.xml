@@ -31,8 +31,8 @@
       <file leaf-file-name="minipseud.l" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/minipseud.l">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="672">
-              <caret line="30" column="39" selection-start-line="30" selection-start-column="39" selection-end-line="30" selection-end-column="39" />
+            <state relative-caret-position="168">
+              <caret line="24" column="63" selection-start-line="24" selection-start-column="63" selection-end-line="24" selection-end-column="63" />
               <folding />
             </state>
           </provider>
@@ -48,11 +48,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="minipseudeval.c" pinned="false" current-in-tab="false">
+      <file leaf-file-name="minipseudeval.c" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/minipseudeval.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="402">
-              <caret line="139" column="13" selection-start-line="139" selection-start-column="13" selection-end-line="139" selection-end-column="13" />
+            <state relative-caret-position="336">
+              <caret line="137" column="50" selection-start-line="137" selection-start-column="50" selection-end-line="137" selection-end-column="50" />
               <folding />
             </state>
           </provider>
@@ -68,11 +68,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="minipseud.y" pinned="false" current-in-tab="true">
+      <file leaf-file-name="minipseud.y" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/minipseud.y">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="560">
-              <caret line="73" column="64" selection-start-line="73" selection-start-column="64" selection-end-line="73" selection-end-column="64" />
+            <state relative-caret-position="112">
+              <caret line="77" column="10" selection-start-line="77" selection-start-column="10" selection-end-line="77" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -84,13 +84,13 @@
             <state relative-caret-position="22204">
               <caret line="808" column="8" selection-start-line="808" selection-start-column="8" selection-end-line="808" selection-end-column="8" />
               <folding>
-                <marker date="1499245924342" expanded="false" signature="351:397" ph="..." />
-                <marker date="1499245924342" expanded="false" signature="427:609" ph="..." />
-                <marker date="1499245924342" expanded="false" signature="652:694" ph="..." />
-                <marker date="1499245924342" expanded="false" signature="765:880" ph="..." />
-                <marker date="1499245924342" expanded="false" signature="909:930" ph="..." />
-                <marker date="1499245924342" expanded="false" signature="983:1012" ph="..." />
-                <marker date="1499245924342" expanded="true" signature="3422:5005" ph="{...}" />
+                <marker date="1499257869249" expanded="false" signature="351:397" ph="..." />
+                <marker date="1499257869249" expanded="false" signature="427:609" ph="..." />
+                <marker date="1499257869249" expanded="false" signature="652:694" ph="..." />
+                <marker date="1499257869249" expanded="false" signature="765:880" ph="..." />
+                <marker date="1499257869249" expanded="false" signature="909:930" ph="..." />
+                <marker date="1499257869249" expanded="false" signature="983:1012" ph="..." />
+                <marker date="1499257869249" expanded="true" signature="3422:5005" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -138,11 +138,11 @@
         <option value="$PROJECT_DIR$/minipseud.y.c" />
         <option value="$PROJECT_DIR$/minipseud.h" />
         <option value="$PROJECT_DIR$/test.c" />
-        <option value="$PROJECT_DIR$/minipseudeval.c" />
         <option value="$PROJECT_DIR$/minipseudtree.h" />
         <option value="$PROJECT_DIR$/minipseudtree.c" />
         <option value="$PROJECT_DIR$/minipseud.l" />
         <option value="$PROJECT_DIR$/minipseud.y" />
+        <option value="$PROJECT_DIR$/minipseudeval.c" />
       </list>
     </option>
   </component>
@@ -154,10 +154,9 @@
   </component>
   <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-9" />
-    <option name="y" value="-9" />
+    <option name="x" value="-8" />
     <option name="width" value="1924" />
-    <option name="height" value="1048" />
+    <option name="height" value="1038" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -402,15 +401,15 @@
       <workItem from="1498908360767" duration="29993000" />
       <workItem from="1499061753603" duration="17003000" />
       <workItem from="1499205362620" duration="6634000" />
-      <workItem from="1499242067464" duration="3867000" />
+      <workItem from="1499242067464" duration="9030000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="57862000" />
+    <option name="totallyTimeSpent" value="63025000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1924" height="1048" extended-state="0" />
+    <frame x="-8" y="0" width="1924" height="1038" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18205667" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -445,7 +444,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <option name="time" value="3" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -455,13 +454,13 @@
         <state relative-caret-position="20580">
           <caret line="735" column="8" selection-start-line="735" selection-start-column="8" selection-end-line="735" selection-end-column="8" />
           <folding>
-            <marker date="1499245924342" expanded="false" signature="351:397" ph="..." />
-            <marker date="1499245924342" expanded="false" signature="427:609" ph="..." />
-            <marker date="1499245924342" expanded="false" signature="652:694" ph="..." />
-            <marker date="1499245924342" expanded="false" signature="765:880" ph="..." />
-            <marker date="1499245924342" expanded="false" signature="909:930" ph="..." />
-            <marker date="1499245924342" expanded="false" signature="983:1012" ph="..." />
-            <marker date="1499245924342" expanded="true" signature="3422:5005" ph="{...}" />
+            <marker date="1499257869249" expanded="false" signature="351:397" ph="..." />
+            <marker date="1499257869249" expanded="false" signature="427:609" ph="..." />
+            <marker date="1499257869249" expanded="false" signature="652:694" ph="..." />
+            <marker date="1499257869249" expanded="false" signature="765:880" ph="..." />
+            <marker date="1499257869249" expanded="false" signature="909:930" ph="..." />
+            <marker date="1499257869249" expanded="false" signature="983:1012" ph="..." />
+            <marker date="1499257869249" expanded="true" signature="3422:5005" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -522,13 +521,13 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1499245924342" expanded="false" signature="351:397" ph="..." />
-            <marker date="1499245924342" expanded="false" signature="427:609" ph="..." />
-            <marker date="1499245924342" expanded="false" signature="652:694" ph="..." />
-            <marker date="1499245924342" expanded="false" signature="765:880" ph="..." />
-            <marker date="1499245924342" expanded="false" signature="909:930" ph="..." />
-            <marker date="1499245924342" expanded="false" signature="983:1012" ph="..." />
-            <marker date="1499245924342" expanded="true" signature="3422:5005" ph="{...}" />
+            <marker date="1499257869249" expanded="false" signature="351:397" ph="..." />
+            <marker date="1499257869249" expanded="false" signature="427:609" ph="..." />
+            <marker date="1499257869249" expanded="false" signature="652:694" ph="..." />
+            <marker date="1499257869249" expanded="false" signature="765:880" ph="..." />
+            <marker date="1499257869249" expanded="false" signature="909:930" ph="..." />
+            <marker date="1499257869249" expanded="false" signature="983:1012" ph="..." />
+            <marker date="1499257869249" expanded="true" signature="3422:5005" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -568,13 +567,13 @@
         <state relative-caret-position="7112">
           <caret line="970" column="8" selection-start-line="970" selection-start-column="8" selection-end-line="970" selection-end-column="8" />
           <folding>
-            <marker date="1499245924342" expanded="false" signature="351:397" ph="..." />
-            <marker date="1499245924342" expanded="false" signature="427:609" ph="..." />
-            <marker date="1499245924342" expanded="false" signature="652:694" ph="..." />
-            <marker date="1499245924342" expanded="false" signature="765:880" ph="..." />
-            <marker date="1499245924342" expanded="false" signature="909:930" ph="..." />
-            <marker date="1499245924342" expanded="false" signature="983:1012" ph="..." />
-            <marker date="1499245924342" expanded="true" signature="3422:5005" ph="{...}" />
+            <marker date="1499257869249" expanded="false" signature="351:397" ph="..." />
+            <marker date="1499257869249" expanded="false" signature="427:609" ph="..." />
+            <marker date="1499257869249" expanded="false" signature="652:694" ph="..." />
+            <marker date="1499257869249" expanded="false" signature="765:880" ph="..." />
+            <marker date="1499257869249" expanded="false" signature="909:930" ph="..." />
+            <marker date="1499257869249" expanded="false" signature="983:1012" ph="..." />
+            <marker date="1499257869249" expanded="true" signature="3422:5005" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -699,13 +698,13 @@
         <state relative-caret-position="20580">
           <caret line="735" column="8" selection-start-line="735" selection-start-column="8" selection-end-line="735" selection-end-column="8" />
           <folding>
-            <marker date="1499245924342" expanded="false" signature="351:397" ph="..." />
-            <marker date="1499245924342" expanded="false" signature="427:609" ph="..." />
-            <marker date="1499245924342" expanded="false" signature="652:694" ph="..." />
-            <marker date="1499245924342" expanded="false" signature="765:880" ph="..." />
-            <marker date="1499245924342" expanded="false" signature="909:930" ph="..." />
-            <marker date="1499245924342" expanded="false" signature="983:1012" ph="..." />
-            <marker date="1499245924342" expanded="true" signature="3422:5005" ph="{...}" />
+            <marker date="1499257869249" expanded="false" signature="351:397" ph="..." />
+            <marker date="1499257869249" expanded="false" signature="427:609" ph="..." />
+            <marker date="1499257869249" expanded="false" signature="652:694" ph="..." />
+            <marker date="1499257869249" expanded="false" signature="765:880" ph="..." />
+            <marker date="1499257869249" expanded="false" signature="909:930" ph="..." />
+            <marker date="1499257869249" expanded="false" signature="983:1012" ph="..." />
+            <marker date="1499257869249" expanded="true" signature="3422:5005" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -766,13 +765,13 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1499245924342" expanded="false" signature="351:397" ph="..." />
-            <marker date="1499245924342" expanded="false" signature="427:609" ph="..." />
-            <marker date="1499245924342" expanded="false" signature="652:694" ph="..." />
-            <marker date="1499245924342" expanded="false" signature="765:880" ph="..." />
-            <marker date="1499245924342" expanded="false" signature="909:930" ph="..." />
-            <marker date="1499245924342" expanded="false" signature="983:1012" ph="..." />
-            <marker date="1499245924342" expanded="true" signature="3422:5005" ph="{...}" />
+            <marker date="1499257869249" expanded="false" signature="351:397" ph="..." />
+            <marker date="1499257869249" expanded="false" signature="427:609" ph="..." />
+            <marker date="1499257869249" expanded="false" signature="652:694" ph="..." />
+            <marker date="1499257869249" expanded="false" signature="765:880" ph="..." />
+            <marker date="1499257869249" expanded="false" signature="909:930" ph="..." />
+            <marker date="1499257869249" expanded="false" signature="983:1012" ph="..." />
+            <marker date="1499257869249" expanded="true" signature="3422:5005" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -811,13 +810,13 @@
         <state relative-caret-position="22204">
           <caret line="808" column="8" selection-start-line="808" selection-start-column="8" selection-end-line="808" selection-end-column="8" />
           <folding>
-            <marker date="1499245924342" expanded="false" signature="351:397" ph="..." />
-            <marker date="1499245924342" expanded="false" signature="427:609" ph="..." />
-            <marker date="1499245924342" expanded="false" signature="652:694" ph="..." />
-            <marker date="1499245924342" expanded="false" signature="765:880" ph="..." />
-            <marker date="1499245924342" expanded="false" signature="909:930" ph="..." />
-            <marker date="1499245924342" expanded="false" signature="983:1012" ph="..." />
-            <marker date="1499245924342" expanded="true" signature="3422:5005" ph="{...}" />
+            <marker date="1499257869249" expanded="false" signature="351:397" ph="..." />
+            <marker date="1499257869249" expanded="false" signature="427:609" ph="..." />
+            <marker date="1499257869249" expanded="false" signature="652:694" ph="..." />
+            <marker date="1499257869249" expanded="false" signature="765:880" ph="..." />
+            <marker date="1499257869249" expanded="false" signature="909:930" ph="..." />
+            <marker date="1499257869249" expanded="false" signature="983:1012" ph="..." />
+            <marker date="1499257869249" expanded="true" signature="3422:5005" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -873,26 +872,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/minipseudeval.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="402">
-          <caret line="139" column="13" selection-start-line="139" selection-start-column="13" selection-end-line="139" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/minipseud.l">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="672">
-          <caret line="30" column="39" selection-start-line="30" selection-start-column="39" selection-end-line="30" selection-end-column="39" />
+        <state relative-caret-position="168">
+          <caret line="24" column="63" selection-start-line="24" selection-start-column="63" selection-end-line="24" selection-end-column="63" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/minipseud.y">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="560">
-          <caret line="73" column="64" selection-start-line="73" selection-start-column="64" selection-end-line="73" selection-end-column="64" />
+        <state relative-caret-position="112">
+          <caret line="77" column="10" selection-start-line="77" selection-start-column="10" selection-end-line="77" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/minipseudeval.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="137" column="50" selection-start-line="137" selection-start-column="50" selection-end-line="137" selection-end-column="50" />
           <folding />
         </state>
       </provider>
