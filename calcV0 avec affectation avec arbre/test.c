@@ -92,3 +92,11 @@ void to_lower(char *name){
       i++;
    }
 }
+void to_upper(char *name){
+    int j =0;
+    while( name[j] )
+    {
+        putchar(toupper(name[j]));
+        j++;
+    }
+}

@@ -12,9 +12,23 @@ int funcDepth = 0;
 LinkedList *values;
 
 double evalExpr(Node *node) {
-	switch ( node->type ) {
+    double res;
+    double result=0.0;
+    switch ( node->type ) {
 	    case NTEMPTY:  return 0.0;
-	    case NTNUM: return node->val;	 
+        case NTINCREMENTATION:
+            res=getValue(values, node->children[0]->var);
+            result = res+1;
+            addVariable(values,node->children[0]->var,result);
+            runVariable(values);
+            return result;
+        case NTDECREMENTATION:
+            res=getValue(values, node->children[0]->var);
+            result = res-1;
+            addVariable(values,node->children[0]->var,result);
+            runVariable(values);
+            return result;
+        case NTNUM: return node->val;
 	    case NTPLUS: return evalExpr(node->children[0])	+ evalExpr(node->children[1]);
 	    case NTMIN: return evalExpr(node->children[0]) - evalExpr(node->children[1]);
 	    case NTMULT: return evalExpr(node->children[0])	* evalExpr(node->children[1]);
@@ -22,6 +36,13 @@ double evalExpr(Node *node) {
 	    case NTPOW: return pow(evalExpr(node->children[0]),	evalExpr(node->children[1]));
         case NTVAR: return getValue(values, node->var);
 		case NTSUP:  return evalExpr(node->children[0]) > evalExpr(node->children[1]);
+        case NTINF:  return evalExpr(node->children[0]) < evalExpr(node->children[1]);
+        case NTLE:  return evalExpr(node->children[0]) <= evalExpr(node->children[1]);
+        case NTGE:  return evalExpr(node->children[0]) >= evalExpr(node->children[1]);
+        case NTEQ:  return evalExpr(node->children[0]) == evalExpr(node->children[1]);
+        case NTNE:  return evalExpr(node->children[0]) != evalExpr(node->children[1]);
+        case NTAND:  return evalExpr(node->children[0]) && evalExpr(node->children[1]);
+        case NTOR:  return evalExpr(node->children[0]) || evalExpr(node->children[1]);
         case NTTHENELSE:  return getValue(values, node->var);
         case NTTHEN:  return getValue(values, node->var);/*
         case NTSHOWVAR:  return getValue(values, node->var);*/
@@ -44,6 +65,9 @@ void evalInst(Node* node) {
         case NTSHOWVAR:   
      		checkVariable(values,node->children[0]->var);
         break;
+        case NTTOUPPER:
+            to_upper(node->children[0]->var);
+            break;
         case NTTOLOWER:   
      		to_lower(node->children[0]->var);
         break;
@@ -78,6 +102,28 @@ void evalInst(Node* node) {
                 printf("le deuxieme");
             }
 			break;
+
+        case NTINF:
+            printf("%f\n", evalExpr(node));
+            break;
+        case NTLE:
+            break;
+        case NTGE:
+            break;
+        case NTEQ:
+            break;
+        case NTNE:
+            break;
+        case NTAND:
+            break;
+        case NTOR:
+            break;
+        case NTINCREMENTATION:
+            printf("%f\n", evalExpr(node));
+            break;
+        case NTDECREMENTATION:
+            printf("%f\n", evalExpr(node));
+            break;
         case NTIF:
             if(evalExpr(node->children[0])==1){
                 printf("%f\n", evalExpr(node->children[1]->children[0]));

@@ -25,6 +25,7 @@ real      {int}("."{int})?{exp}?
 "else"  { yylval.node = createNode(NTTHENELSE); return(ELSE); }
 "then"	{  yylval.node = createNode(NTTHEN); return THEN;}
 "show"  { yylval.node = createNode(NTSHOWVAR); return(SHOWVAR); }
+"ToUpperCase"  { yylval.node = createNode(NTTOUPPER); return(TOUPPER); }
 "ToLowerCase"	{ yylval.node = createNode(NTTOLOWER); return(TOLOWER); }
 "for"	{return FOR;}
 
@@ -45,7 +46,8 @@ real      {int}("."{int})?{exp}?
     return(NUM);
     }
 
-
+"--"   { yylval.node = createNode(NTDECREMENTATION); return(DECREMENTATION); }
+"++"   { yylval.node = createNode(NTINCREMENTATION); return(INCREMENTATION); }
 "+"   { yylval.node = createNode(NTPLUS); return(PLUS); }
 "-"   { yylval.node = createNode(NTMIN); return(MIN); }
 "*"   { yylval.node = createNode(NTMULT); return(MULT); }
@@ -53,6 +55,13 @@ real      {int}("."{int})?{exp}?
 "^"   { yylval.node = createNode(NTPOW); return(POW); }
 "="  { yylval.node = createNode(NTAFF); return(AFF); }
 ">"  { yylval.node = createNode(NTSUP); return(SUP); }
+"<"  { yylval.node = createNode(NTINF); return(INF); }
+"<="  { yylval.node = createNode(NTLE); return(LE); }
+">+"  { yylval.node = createNode(NTGE); return(GE); }
+"=="  { yylval.node = createNode(NTEQ); return(EQ); }
+"!="  { yylval.node = createNode(NTNE); return(NE); }
+"&&"  { yylval.node = createNode(NTAND); return(AND); }
+"||"  { yylval.node = createNode(NTOR); return(OR); }
 
 
 

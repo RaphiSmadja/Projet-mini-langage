@@ -38,7 +38,9 @@ const char* node2String(Node *node) {
         return res;
 
 
-	case NTPLUS:  return "NTPLUS";
+    case NTINCREMENTATION:  return "NTINCREMENTATION";
+    case NTPLUS:  return "NTPLUS";
+    case NTDECREMENTATION:   return "NTDECREMENTATION";
 	case NTMIN:   return "NTMIN";
 	case NTMULT:  return "NTMULT";
 	case NTDIV:   return "NTDIV";
@@ -46,13 +48,19 @@ const char* node2String(Node *node) {
 	case NTAFF:   return "NTAFF";
 	case NTSHOWVAR:  return "NTSHOWVAR";
 	case NTTOLOWER:  return "NTTOLOWER";
-	/*case NTSCANF:  return "NTSCANF";*/
-	case NTSUP:   return "NTSUP";
+    case NTTOUPPER:  return "NTTOUPPER";
+    case NTSUP:   return "NTSUP";
     case NTIF:   return "NTIF";
     case NTTHENELSE:   return "NTTHENELSE";
     case NTTHEN:return "NTTHEN";
-	
-	default: return "UNK";
+    case NTINF: return "NTINF";
+    case NTLE: return "NTLE";
+    case NTGE: return "NTGE";
+    case NTEQ: return "NTEQ";
+    case NTNE: return "NTNE";
+    case NTAND: return "NTAND";
+    case NTOR: return "NTOR";
+     default: return "UNK";
 	};
 }
 
