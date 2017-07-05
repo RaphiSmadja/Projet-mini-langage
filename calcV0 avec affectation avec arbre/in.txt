@@ -1,4 +1,1 @@
-bas=12;
-titi=bas;
-sa=0;
-for(then titi<15;titi++)then sa=titi;
+tern(1>3)?3:2;

@@ -29,7 +29,9 @@ enum NodeType {
     NTINCREMENTATION  = 341,
     NTDECREMENTATION  = 342,
     NTWHILE = 343,
-    NTFOR = 344
+    NTFOR = 344,
+    NTINTR= 345,
+    NTTERN= 346
 
     /*NTSCANF=333 */
 

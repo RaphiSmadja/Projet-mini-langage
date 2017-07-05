@@ -21,7 +21,7 @@ Node root;
 
 
 %token   <node> NUM VAR SHOWVAR TOLOWER TOUPPER /*SCANF*/
-%token   <node> IF THEN ELSE FOR WHILE PLUS MIN MULT SUP DIV POW AFF  LT LR EQ GT GE INF LE NE  AND OR INCREMENTATION DECREMENTATION /*SHOWVAR*/
+%token   <node> IF THEN ELSE FOR WHILE PLUS MIN MULT SUP DIV POW AFF  LT LR EQ GT GE INF LE NE  AND OR INTR DP TERN INCREMENTATION DECREMENTATION /*SHOWVAR*/
 %token   OP_PAR CL_PAR COLON
 %token   EOL
 
@@ -34,7 +34,7 @@ Node root;
   
 
 %left OR
-%left AND
+%left AND INTR DP
 %left EQ NEQ
 %left GT LT GET LET
 %left PLUS  MIN SUP NE LE INF GE
@@ -76,14 +76,17 @@ Inst:
   | TOLOWER OP_PAR VAR CL_PAR COLON{ $$ = nodeChildren($1,$3,createNode(NTEMPTY));}
   | TOUPPER OP_PAR VAR CL_PAR COLON{ $$ = nodeChildren($1,$3,createNode(NTEMPTY));}
   /*| SCANF OP_PAR CL_PAR COLON{ $$ = nodeChildren($2,$1,createNode(NTEMPTY));}*/
+  | TERN OP_PAR Expr CL_PAR Statement  { $$ = nodeChildren($1, $3, $5);}
   | IF OP_PAR Expr CL_PAR Statement  { $$ = nodeChildren($1, $3, $5);}
   | WHILE OP_PAR Expr CL_PAR Statement {  $$ = nodeChildren($1, $3, $5);}
   | FOR OP_PAR Statement  CL_PAR Statement {  $$ = nodeChildren($1, $3, $5);}
   ;
 
 
+
 Statement:
     THEN Expr COLON Expr {$$ = nodeChildren($1, $2, $4);}
+   | INTR Expr DP Expr COLON {$$ = nodeChildren($1, $2, $4);}
    | THEN Expr COLON {$$ = nodeChildren($1, $2,  createNode(NTEMPTY));}
    | THEN Expr ELSE Expr COLON {$$ = nodeChildren($3, $2, $4);}
 

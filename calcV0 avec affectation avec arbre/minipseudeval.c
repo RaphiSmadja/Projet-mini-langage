@@ -52,7 +52,8 @@ double evalExpr(Node *node) {
         case NTAND:  return evalExpr(node->children[0]) && evalExpr(node->children[1]);
         case NTOR:  return evalExpr(node->children[0]) || evalExpr(node->children[1]);
         case NTTHENELSE:  return getValue(values, node->var);
-        case NTTHEN:  return getValue(values, node->var);/*
+        case NTTHEN:  return getValue(values, node->var);
+        case NTINTR:  return getValue(values, node->var);/*
         case NTSHOWVAR:  return getValue(values, node->var);*/
 	    default: 
 		    printf("Error in evalExpr ... Wrong node type: %s\n", node2String(node));
@@ -142,6 +143,16 @@ void evalInst(Node* node) {
                 printf("%f\n", evalExpr(node->children[1]->children[1]));
             }
             break;
+
+        case NTTERN:
+            if(evalExpr(node->children[0])==1){
+                printf("%f\n", evalExpr(node->children[1]->children[0]));
+            }else{
+                printf("%f\n", evalExpr(node->children[1]->children[1]));
+            }
+            break;
+
+
         case NTWHILE:
 
             while(evalExpr(node->children[0])==1){
@@ -158,6 +169,8 @@ void evalInst(Node* node) {
             break;
 
         case NTTHEN:
+            break;
+        case NTINTR:
             break;
 
 	    case NTEMPTY:            

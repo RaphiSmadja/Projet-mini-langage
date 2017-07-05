@@ -66,17 +66,20 @@
      NE = 282,
      AND = 283,
      OR = 284,
-     INCREMENTATION = 285,
-     DECREMENTATION = 286,
-     OP_PAR = 287,
-     CL_PAR = 288,
-     COLON = 289,
-     EOL = 290,
-     NEQ = 291,
-     LET = 292,
-     GET = 293,
-     NOT = 294,
-     NEG = 295
+     INTR = 285,
+     DP = 286,
+     TERN = 287,
+     INCREMENTATION = 288,
+     DECREMENTATION = 289,
+     OP_PAR = 290,
+     CL_PAR = 291,
+     COLON = 292,
+     EOL = 293,
+     NEQ = 294,
+     LET = 295,
+     GET = 296,
+     NOT = 297,
+     NEG = 298
    };
 #endif
 
@@ -94,7 +97,7 @@ typedef union YYSTYPE
 
 
 /* Line 1676 of yacc.c  */
-#line 98 "minipseud.tab.h"
+#line 101 "minipseud.tab.h"
 } YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */

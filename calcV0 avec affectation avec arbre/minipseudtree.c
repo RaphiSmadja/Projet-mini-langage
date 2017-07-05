@@ -62,6 +62,9 @@ const char* node2String(Node *node) {
     case NTOR: return "NTOR";
     case NTWHILE : return "NTWHILE";
     case NTFOR : return "NTFOR";
+    case NTINTR : return "NTINTR";
+    case NTTERN : return "NTTERN";
+
      default: return "UNK";
 	};
 }

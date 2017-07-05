@@ -22,14 +22,16 @@ real      {int}("."{int})?{exp}?
 %%
 
 "if"  { yylval.node = createNode(NTIF); return(IF); }
+"tern"  { yylval.node = createNode(NTTERN); return(TERN); }
 "else"  { yylval.node = createNode(NTTHENELSE); return(ELSE); }
 "then"	{  yylval.node = createNode(NTTHEN); return THEN;}
 "while"	{  yylval.node = createNode(NTWHILE); return WHILE;}
 "for"	{yylval.node = createNode(NTFOR); return(FOR); }
 "show"  { yylval.node = createNode(NTSHOWVAR); return(SHOWVAR); }
+"?"  { yylval.node = createNode(NTINTR); return(INTR); }
 "ToUpperCase"  { yylval.node = createNode(NTTOUPPER); return(TOUPPER); }
 "ToLowerCase"	{ yylval.node = createNode(NTTOLOWER); return(TOLOWER); }
-
+":" return(DP);
 
 {empty}  { /* Nothing */ }
 
