@@ -70,15 +70,14 @@ Inst:
   | TOUPPER OP_PAR VAR CL_PAR COLON{ $$ = nodeChildren($1,$3,createNode(NTEMPTY));}
   /*| SCANF OP_PAR CL_PAR COLON{ $$ = nodeChildren($2,$1,createNode(NTEMPTY));}*/
   | IF OP_PAR Expr CL_PAR Statement  { $$ = nodeChildren($1, $3, $5);}
-  | FOR OP_PAR Expr COLON  Expr COLON Expr CL_PAR THEN Expr COLON { $$=$10; printf("-- BOUCLE FOR \n");}
-  | WHILE OP_PAR Expr CL_PAR THEN Expr COLON { $$ = $5; printf("-- WHILE  \n")}
+  | WHILE OP_PAR Expr CL_PAR Statement {  $$ = nodeChildren($1, $3, $5);}
+  | FOR OP_PAR Expr COLON Expr COLON Expr  CL_PAR Statement {  $$ = nodeChildren($1, $3, $5);}
   ;
 
 
 Statement:
-   THEN Expr COLON {$$ = nodeChildren($1, $2,  createNode(NTEMPTY));printf("--BOUCLE IF THEN \n")}
-   | THEN Expr ELSE Expr COLON {$$ = nodeChildren($3, $2, $4);printf("--BOUCLE IF THEN ELSE \n")}
-
+   THEN Expr COLON {$$ = nodeChildren($1, $2,  createNode(NTEMPTY));}
+   | THEN Expr ELSE Expr COLON {$$ = nodeChildren($3, $2, $4);}
 
 
 Expr:
@@ -92,7 +91,6 @@ Expr:
   | Expr NE Expr     { $$ = nodeChildren($2, $1, $3); }
   | Expr GE Expr     { $$ = nodeChildren($2, $1, $3); }
   | Expr EQ Expr     { $$ = nodeChildren($2, $1, $3); }
-  | Expr NE Expr     { $$ = nodeChildren($2, $1, $3); }
   | Expr PLUS Expr     { $$ = nodeChildren($2, $1, $3); }
   | Expr MIN Expr      { $$ = nodeChildren($2, $1, $3); }
   | Expr MULT Expr     { $$ = nodeChildren($2, $1, $3); }

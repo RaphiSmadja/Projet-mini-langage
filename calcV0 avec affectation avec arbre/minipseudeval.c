@@ -52,6 +52,8 @@ double evalExpr(Node *node) {
     };
 }
 
+
+
 void evalInst(Node* node) {
 	double val;
 	switch (node->type) {
@@ -129,6 +131,17 @@ void evalInst(Node* node) {
                 printf("%f\n", evalExpr(node->children[1]->children[0]));
             }else{
                 printf("%f\n", evalExpr(node->children[1]->children[1]));
+            }
+            break;
+        case NTWHILE:
+
+            while(evalExpr(node->children[0])==1){
+                printf("%f\n", evalExpr(node->children[1]->children[0]));
+            }
+            break;
+        case NTFOR:
+            while(evalExpr(node->children[0])==1){
+                printf("%f\n", evalExpr(node->children[1]->children[0]));
             }
             break;
         case NTTHENELSE:

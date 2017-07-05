@@ -60,6 +60,8 @@ const char* node2String(Node *node) {
     case NTNE: return "NTNE";
     case NTAND: return "NTAND";
     case NTOR: return "NTOR";
+    case NTWHILE : return "NTWHILE";
+    case NTFOR : return "NTFOR";
      default: return "UNK";
 	};
 }
